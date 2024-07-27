@@ -1,0 +1,10 @@
+{
+    "amount": "importo",
+    "base": "base valuta",
+    "conversionRates": "Tassi di conversione:",
+    "convertedAmount": "Importo convertito:",
+    "sameCurrencyError": "Le valute di base e di destinazione devono essere diverse.",
+    "title": "Convertitore di valuta",
+    "target": "destinazione valuta",
+    "validationError": "L'importo deve essere un numero non negativo."
+}

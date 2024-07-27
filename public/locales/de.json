@@ -1,0 +1,10 @@
+{
+    "amount": "Anzahl",
+    "base": "Basis Währung",
+    "conversionRates": "Umrechnungskurse:",
+    "convertedAmount": "Umgerechneter Betrag:",
+    "sameCurrencyError": "Basis- und Zielwährung müssen unterschiedlich sein.",
+    "title": "Währungsumrechner",
+    "target": "Ziel Währung",
+    "validationError": "Die Anzahl muss eine nicht negative Zahl sein."
+}

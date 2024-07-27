@@ -1,0 +1,10 @@
+{
+    "amount": "Amount",
+    "base": "Base Currency",
+    "conversionRates": "Conversion Rates:",
+    "convertedAmount": "Converted Amount:",
+    "sameCurrencyError": "Base and target currencies must be different.",
+    "title": "Currency Converter",
+    "target": "Target Currency",
+    "validationError": "Amount must be a non-negative number."
+}
