@@ -1,14 +1,16 @@
 import { afterEach, expect, vi } from 'vitest'
 import createFetchMock from 'vitest-fetch-mock'
-import enJSON from '../../public/locales/en.json'
-import deJSON from '../../public/locales/de.json'
-import { render, screen, userEvent } from '../test/testUtils.ts'
-import { CurrencyConverter } from './CurrencyConverter.tsx'
+import enJSON from '../public/locales/en.json'
+import deJSON from '../public/locales/de.json'
+import { render, screen, userEvent } from './test/testUtils.ts'
+import App from './App.tsx'
 
-//@ts-ignore
+//@ts-expect-error indexing a JSON using strings
 let tMock = vi.fn().mockImplementation((str: string) => enJSON[str])
 let defaultLanguage = vi.fn().mockReturnValue('en')
-let changeLanguageMock = vi.fn().mockImplementation(() => new Promise(() => {}))
+const changeLanguageMock = vi
+  .fn()
+  .mockImplementation(() => new Promise(() => {}))
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -45,7 +47,7 @@ describe('CurrencyConvertor', () => {
   })
 
   it('should render the app with default values', async () => {
-    render(<CurrencyConverter />)
+    render(<App />)
 
     const baseCurrencySelectBox = screen.getByLabelText('Base Currency')
     const targetCurrencySelectBox = screen.getByLabelText('Target Currency')
@@ -59,7 +61,7 @@ describe('CurrencyConvertor', () => {
   })
 
   it('should show error message when same currency is selected', async () => {
-    render(<CurrencyConverter />)
+    render(<App />)
     const baseCurrencySelectBox = screen.getByLabelText('Base Currency')
     const targetCurrencySelectBox = screen.getByLabelText('Target Currency')
     await user.selectOptions(baseCurrencySelectBox, 'USD')
@@ -70,7 +72,7 @@ describe('CurrencyConvertor', () => {
   })
 
   it('should show error message when negative amount is entered', async () => {
-    render(<CurrencyConverter />)
+    render(<App />)
     const amountInput = screen.getByLabelText('Amount')
     await user.type(amountInput, '{backspace}')
     await user.type(amountInput, '-1')
@@ -87,7 +89,7 @@ describe('CurrencyConvertor', () => {
         status: 200,
       }
     })
-    render(<CurrencyConverter />)
+    render(<App />)
     const baseCurrencySelectBox = screen.getByLabelText('Base Currency')
     const targetCurrencySelectBox = screen.getByLabelText('Target Currency')
     await user.selectOptions(targetCurrencySelectBox, 'JPY')
@@ -98,7 +100,7 @@ describe('CurrencyConvertor', () => {
   })
 
   it('should swap the order of the currencies when the base currency and target currency is changed', async () => {
-    render(<CurrencyConverter />)
+    render(<App />)
     const swapButton = screen.getByRole('button')
     const baseCurrencySelectBox = screen.getByLabelText('Base Currency')
     const targetCurrencySelectBox = screen.getByLabelText('Target Currency')
@@ -111,7 +113,7 @@ describe('CurrencyConvertor', () => {
   })
 
   it('should show convert the right amount when the amount is changed', async () => {
-    render(<CurrencyConverter />)
+    render(<App />)
     const amountInput = screen.getByLabelText('Amount')
     await user.type(amountInput, '0')
     await userEvent.tab()
@@ -127,7 +129,7 @@ describe('CurrencyConvertor', () => {
       }
     })
 
-    render(<CurrencyConverter />)
+    render(<App />)
 
     expect(
       await screen.findByText(
@@ -138,9 +140,9 @@ describe('CurrencyConvertor', () => {
 
   it('should load the correct value for language switcher and correct language and allow changing language', async () => {
     defaultLanguage = vi.fn().mockReturnValueOnce('de')
-    //@ts-ignore
+    //@ts-expect-error indexing a JSON using strings
     tMock = vi.fn().mockImplementation((str: string) => deJSON[str])
-    render(<CurrencyConverter language="de" />)
+    render(<App />)
     expect(screen.getByText('Währungsumrechner')).toBeInTheDocument()
     const languageSwitcher = screen.getByRole('listbox')
     expect(languageSwitcher).toHaveValue('de')

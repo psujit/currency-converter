@@ -17,9 +17,18 @@ export default mergeConfig(
         '**/node_modules/**',
         '**/dist/**',
         '**/.{idea,git,cache,output,temp}/**',
-        './src/i18n.ts',
-        './src/main.tsx',
       ],
+      coverage: {
+        exclude: [
+          '**/node_modules/**',
+          '**/dist/**',
+          '**/.{idea,git,cache,output,temp}/**',
+          './src/*.ts',
+          './src/*.tsx',
+          '**/*.config.ts',
+          '**/*.cjs',
+        ],
+      },
     },
   }),
 )
