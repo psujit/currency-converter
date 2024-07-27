@@ -6,7 +6,6 @@ Currency Converter Tool that can be integrated into an HTML page.
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Setup](#setup)
-- [Enhancements](#enhancements)
 - [Constraints](#constraints)
 - [Validations](#validations)
 
@@ -96,12 +95,6 @@ npm run test
 ```sh
 npm run test:coverage 
 ```
-
-## Enhancements
-
-- Pagination
-- Column Sorting
-
 
 ## Constraints
 
