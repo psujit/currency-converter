@@ -1,5 +1,5 @@
 # Currency Converter
-Dashboard that shows the current customer list with options to edit, delete and add new customers
+Currency Converter Tool that can be integrated into an HTML page.
 
 ## Table of Contents
 - [General Information](#general-information)
