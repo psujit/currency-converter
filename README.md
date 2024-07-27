@@ -57,7 +57,7 @@ This project was bootstrapped using [Vite](https://vitejs.dev/).
 ### Steps
 - The project can be cloned using
 ```sh
-git clone https://github.com/psujit/customer-management-dashboard.git
+git clone https://github.com/psujit/currency-converter.git
 ```
 
 - To install the dependencies, use
