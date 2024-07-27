@@ -42,6 +42,10 @@ Currency Converter Tool that can be integrated into an HTML page.
 
 - The styles are responsive and can be used on any device.
 
+- The styles of the tool can be controlled by the host application.
+
+- The tool can be used in a light or dark mode that is controlled by the current system setting of the user (the one running on the dev server has a better difference in this case than the production build but that is only for demo purposes).
+
 - The tool can be used in a vertical or horizontal orientation that can be controlled by the host application.
 
 - The language of the tool can also be controlled by the host application (defaults to English if language is not provided).
