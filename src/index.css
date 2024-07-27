@@ -13,11 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-brown: #654321;
   --color-primary: var(--external-color-primary, var(--color-white));
   --color-secondary: var(--external-color-secondary, var(--color-black));
   --color-accent: #646cff;
   --color-gray: #f9f9f9;
-  --color-heading: #654321;
+  --color-heading: var(--external-color-heading, var(--color-brown));
   --color-error: #ff3d3d;
   --color-background: #242424;
 }
@@ -49,12 +50,11 @@ input[type=number] {
 
 @media (prefers-color-scheme: light) {
   :root {
-  --color-primary: var(--color-black);
-  --color-secondary: var(--color-white);
+    --color-primary: var(--color-black);
+    --color-secondary: var(--color-white);
+    --color-heading: #ffebcd;
+    --color-text: #213547;
     color: #213547;
     background-color: var(--color-white);
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
