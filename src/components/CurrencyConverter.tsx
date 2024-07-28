@@ -53,7 +53,7 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
     }
     if (validateNonNegativeFloat(sourceAmount)) {
       setValidationError('')
-      getRates()
+      errorMessage.length === 0 && getRates()
     } else {
       setValidationError(t('validationError'))
     }
@@ -62,21 +62,21 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
   const handleSourceCurrencyChange = (
     event: ChangeEvent<HTMLSelectElement>,
   ) => {
+    setErrorMessage('')
     if (event.target.value === convertedCurrency) {
       setErrorMessage(t('sameCurrencyError'))
-    } else {
-      setSourceCurrency(event.target.value)
     }
+    setSourceCurrency(event.target.value)
   }
 
   const handleTargetCurrencyChange = (
     event: ChangeEvent<HTMLSelectElement>,
   ) => {
+    setErrorMessage('')
     if (event.target.value === sourceCurrency) {
       setErrorMessage(t('sameCurrencyError'))
-    } else {
-      setConvertedCurrency(event.target.value)
     }
+    setConvertedCurrency(event.target.value)
   }
 
   const validateNonNegativeFloat = (value: string): boolean => {
@@ -155,15 +155,16 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
             <div className="item stretch error">{errorMessage}</div>
           )}
           <span className="item stretch">
-            {validateNonNegativeFloat(sourceAmount) && (
-              <>
-                <h4>{t('convertedAmount')}</h4>
-                <p>
-                  {sourceAmount} {sourceCurrency} = {targetAmount.toFixed(4)}{' '}
-                  {convertedCurrency}
-                </p>
-              </>
-            )}
+            {validateNonNegativeFloat(sourceAmount) &&
+              errorMessage.length === 0 && (
+                <>
+                  <h4>{t('convertedAmount')}</h4>
+                  <p>
+                    {sourceAmount} {sourceCurrency} = {targetAmount.toFixed(4)}{' '}
+                    {convertedCurrency}
+                  </p>
+                </>
+              )}
             <br />
             <h4>{t('conversionRates')}</h4>
             <label>
