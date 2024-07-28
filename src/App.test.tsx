@@ -138,7 +138,7 @@ describe('CurrencyConvertor', () => {
     ).toBeInTheDocument()
   })
 
-  it('should load the app in the correct language and the correct value for language switcher and allow changing language', async () => {
+  it('should load the app in the correct language and show the correct value for language switcher and allow changing language', async () => {
     defaultLanguage = vi.fn().mockReturnValueOnce('de')
     //@ts-expect-error indexing a JSON using strings
     tMock = vi.fn().mockImplementation((str: string) => deJSON[str])
