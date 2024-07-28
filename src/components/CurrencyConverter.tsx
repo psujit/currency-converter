@@ -107,6 +107,7 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
               <input
                 id="amount"
                 type="text"
+                maxLength={20}
                 value={sourceAmount}
                 onChange={handleSourceAmountChange}
               />
