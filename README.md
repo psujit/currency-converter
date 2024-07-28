@@ -38,6 +38,12 @@ Currency Converter Tool that can be integrated into an HTML page.
 
 - Convert Currency
 
+- The currencies are alphabetically sorted in the dropdown.
+
+- The most common currencies according to the requirements are displayed alphabetically at the top for ease of use.
+
+- The other supported currencies are displayed alphabetically underneath the most common currencies.
+
 - The built version can be integrated into an HTML page.
 
 - The styles are responsive and can be used on any device.
