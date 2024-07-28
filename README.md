@@ -93,7 +93,7 @@ npm run preview
 ```
 - The build will be served on http://localhost:4173/
 - This built version is using a web component to integrate the currency converter into an HTML page.
-
+- The web component is integrated in the `index.html` file in the `public` folder.
 
 ## Testing
 - The app is tested using [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
