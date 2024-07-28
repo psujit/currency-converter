@@ -101,9 +101,6 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
         <div className="container">
           {languageSwitcher && <LanguageSwitcher />}
           <h2>{t('title')}</h2>
-          {errorMessage.length > 0 && (
-            <div className="item stretch error">{errorMessage}</div>
-          )}
           <div className="item">
             <span>
               <label htmlFor="amount">{t('amount')}</label>
@@ -113,12 +110,8 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
                 value={sourceAmount}
                 onChange={handleSourceAmountChange}
               />
-              {validationError.length > 0 && (
-                <p className="error validation">{validationError}</p>
-              )}
             </span>
           </div>
-
           <div className="item">
             <label htmlFor="source-currency">{t('base')}</label>
             <select
@@ -128,7 +121,7 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
             >
               {Object.keys(currencies).map((currencyCode) => (
                 <option key={currencyCode} value={currencyCode}>
-                  {/*@ts-ignore*/}
+                  {/*@ts-expect-error indexing a JSON Object using strings*/}
                   {`${currencyCode} - ${currencies[currencyCode]}`}
                 </option>
               ))}
@@ -146,12 +139,20 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
             >
               {Object.keys(currencies).map((currencyCode) => (
                 <option key={currencyCode} value={currencyCode}>
-                  {/*@ts-ignore*/}
+                  {/*@ts-expect-error indexing a JSON Object using strings*/}
                   {`${currencyCode} - ${currencies[currencyCode]}`}
                 </option>
               ))}
             </select>
           </div>
+          <div className="item">
+            {validationError.length > 0 && (
+              <p className="error validation">{validationError}</p>
+            )}
+          </div>
+          {errorMessage.length > 0 && (
+            <div className="item stretch error">{errorMessage}</div>
+          )}
           <span className="item stretch">
             {validateNonNegativeFloat(sourceAmount) && (
               <>

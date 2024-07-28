@@ -165,48 +165,11 @@ button.item {
         align-items: center;
         justify-content: center;
       }
-    }
 
-    .language-switcher {
-      grid-column: span 1;
-    }
-
-    button.item {
-      justify-self: center;
-      margin-left: 0.125rem;
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      grid-column: span 1;
-    }
-
-    input {
-      width: 100%;
-    }
-  }
-
-  .error {
-    &.validation {
-      grid-column: span 1;
-    }
-  }
-}
-
-@media screen and (max-width:1024px) {
-  div.container {
-    grid-template-columns: 1fr;
-
-    .item {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      margin: 0 2rem 1rem;
-
-      &.stretch {
-        grid-column: span 1;
-        align-items: center;
-        justify-content: center;
+      .error {
+        &.validation {
+          grid-column: span 1;
+        }
       }
     }
 
@@ -228,9 +191,53 @@ button.item {
       width: 100%;
     }
   }
+}
+
+@media screen and (max-width:1024px) {
+  main {
+    max-width: 50vw;
+
+    div.container {
+      grid-template-columns: 1fr;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0 2rem 1rem;
+        justify-self: center;
+
+        &.stretch {
+          grid-column: span 1;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .language-switcher {
+        grid-column: span 1;
+      }
+
+      button.item {
+        justify-self: center;
+        margin-left: 0.125rem;
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        grid-column: span 1;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+
+  }
 
   .error {
     &.validation {
+      margin-top: 20px;
       grid-column: span 1;
     }
   }
