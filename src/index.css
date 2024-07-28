@@ -16,6 +16,7 @@
   --color-brown: #654321;
   --color-primary: var(--external-color-primary, var(--color-white));
   --color-secondary: var(--external-color-secondary, var(--color-black));
+  --color-text: var(--external-color-text, var(--color-secondary));
   --color-accent: #646cff;
   --color-gray: #f9f9f9;
   --color-heading: var(--external-color-heading, var(--color-brown));

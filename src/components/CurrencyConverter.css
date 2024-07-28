@@ -65,6 +65,7 @@ input, select {
     outline: none;
     border-color: var(--color-accent);
     background-color: var(--color-gray);
+    color: var(--color-text);
   }
 }
 
