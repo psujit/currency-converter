@@ -11,11 +11,11 @@ Currency Converter Tool that can be integrated into an HTML page.
 
 ## General Information
 - This is a tool to convert currency from one to another.
-- This tool can be integrated directly into an HTML page (More on that later).
 - User can select the base currency and target currency and the amount to convert.
 - The result will be displayed below the fields.
 - The user can also see the exchange rate used for the conversion and the reverse exchange rate.
 - The tool uses the [Frankfurter App](https://www.frankfurter.app/) to get the latest exchange rates provided by the European Central Bank.
+- This tool can be integrated directly into an HTML page.
 
 ## Technologies Used
 
@@ -103,11 +103,10 @@ npm run test:coverage
 ## Constraints
 
 - The currency converter only supports the currencies provided by the European Central Bank.
-- The currency converter is restricted to show precision up to 4 decimal places because of the weird JS handling of floating point number arithmetic.
+- The currency converter limits precision to four decimal places due to the peculiar way JavaScript handles arithmetic with floating point numbers.
 - Only "." is allowed as a decimal separator.
 
 ## Validations
 
 - The input amount can be a non-negative number.
 - The Base and Target currencies must not be the same.
-- Phone Number must be of the format 0123 4567890 or 0123 45678901
