@@ -82,7 +82,7 @@ describe('CurrencyConvertor', () => {
     ).toBeInTheDocument()
   })
 
-  it('should show convert the right currencies when the base currency and target currency is changed', async () => {
+  it('should convert the right currencies when the base currency and target currency is changed', async () => {
     fetchMocker.mockResponse(() => {
       return {
         body: JSON.stringify({ rates: { JPY: 154.527, USD: 1 } }),
@@ -99,7 +99,7 @@ describe('CurrencyConvertor', () => {
     expect(await screen.findAllByText('1 USD = 154.5270 JPY')).toHaveLength(2)
   })
 
-  it('should swap the order of the currencies when the base currency and target currency is changed', async () => {
+  it('should swap the order of the currencies when the swap currencies button is pressed', async () => {
     render(<App />)
     const swapButton = screen.getByRole('button')
     const baseCurrencySelectBox = screen.getByLabelText('Base Currency')
@@ -112,7 +112,7 @@ describe('CurrencyConvertor', () => {
     expect(await screen.findAllByText('1 USD = 0.9216 EUR')).toHaveLength(2)
   })
 
-  it('should show convert the right amount when the amount is changed', async () => {
+  it('should convert the right amount when the amount is changed', async () => {
     render(<App />)
     const amountInput = screen.getByLabelText('Amount')
     await user.type(amountInput, '0')
@@ -121,7 +121,7 @@ describe('CurrencyConvertor', () => {
     expect(await screen.findAllByText('1 EUR = 1.0854 USD')).toHaveLength(1)
   })
 
-  it('should show handle errors if API response fails', async () => {
+  it('should handle errors if API call fails', async () => {
     fetchMocker.mockResponse(() => {
       return {
         body: JSON.stringify({ rates: { JPY: 154.527, USD: 1 } }),
@@ -138,7 +138,7 @@ describe('CurrencyConvertor', () => {
     ).toBeInTheDocument()
   })
 
-  it('should load the correct value for language switcher and correct language and allow changing language', async () => {
+  it('should load the app in the correct language and the correct value for language switcher and allow changing language', async () => {
     defaultLanguage = vi.fn().mockReturnValueOnce('de')
     //@ts-expect-error indexing a JSON using strings
     tMock = vi.fn().mockImplementation((str: string) => deJSON[str])
