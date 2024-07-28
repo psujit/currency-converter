@@ -235,3 +235,14 @@ button.item {
     }
   }
 }
+
+@media (prefers-color-scheme: light) {
+  select, input {
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background-color: var(--color-gray);
+      color: var(--color-primary);
+    }
+  }
+}
