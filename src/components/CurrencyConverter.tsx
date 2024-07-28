@@ -122,8 +122,7 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
             >
               {Object.keys(currencies).map((currencyCode) => (
                 <option key={currencyCode} value={currencyCode}>
-                  {/*@ts-expect-error indexing a JSON Object using strings*/}
-                  {`${currencyCode} - ${currencies[currencyCode]}`}
+                  {`${currencyCode} - ${t(currencyCode)}`}
                 </option>
               ))}
             </select>
@@ -140,8 +139,7 @@ export const CurrencyConverter = (props: CurrencyConverterProps) => {
             >
               {Object.keys(currencies).map((currencyCode) => (
                 <option key={currencyCode} value={currencyCode}>
-                  {/*@ts-expect-error indexing a JSON Object using strings*/}
-                  {`${currencyCode} - ${currencies[currencyCode]}`}
+                  {`${currencyCode} - ${t(currencyCode)}`}
                 </option>
               ))}
             </select>
